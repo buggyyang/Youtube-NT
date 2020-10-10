@@ -16,7 +16,7 @@ Here, I recommend to download "webm" format videos as they are usually encoded w
 Of course, you can use your own videos.
 
 ## Use the scripts
-1. `pip install opencv-python`
+1. Install `opencv-python` `ffmpeg` first.
 2. `cd PySceneDetect; python setup.py install` # as I use a modified version of [PySceneDetect](https://pyscenedetect.readthedocs.io/projects/Manual/en/stable/)
 
 3. Then we need to customize some values in [config.py](config.py) to detect scene cut and then extract each scene clip:
@@ -31,5 +31,5 @@ Of course, you can use your own videos.
 * `ffmpeg_override = f'-vf scale=iw*2/3:ih*2/3 -vsync 0 -vframes {nframes}'` # ffmpeg command. Here we need to downsample the original video to remove compression artifact
 * `n_process = 64` # number of process
 
-4. Execute `python main.py` and wait.. 
+4. Execute `python main.py` and wait.. (it depends on how many videos you have)
 5. The scripts will generate a file "badlist.csv", which contains the names of subfolder containing bad scene clips. Feel free to remove all the subfolders showed in this file.

@@ -9,11 +9,13 @@ In our paper: [Hierarchical Autoregressive Modeling for Neural Video Compression
 
 As training a learned compression model usually requires high quality training data, we only download high quality videos by executing following command (Please install [youtube-dl](https://github.com/ytdl-org/youtube-dl) first):
 
-* `youtube-dl -f bestvideo[ext=webm][height>=1080] -ciw -o "%(id)s.%(ext)s" -v <url-of-channel>`
+* `youtube-dl -f "bestvideo[ext=webm][height>=1080]" -ciw -o "%(id)s.%(ext)s" -v <url-of-channel>`
 
-Here, I recommend to download "webm" format videos as they are usually encoded with Google's VP9 codec, which usually has good quality and "ffmpeg" supports VP9 decode. Note that if you use "ext=mp4" you may download video with AV1 codec (really new), which may not be supported by some "ffmpeg" binary/package distribution (Of course, you can compile your own "ffmpeg" if you want). In addition, most mp4 files downloaded from youtube are encoded with H.264 codec, which usually has worse quality than VP9. For more details, please refer to [youtube-dl](https://github.com/ytdl-org/youtube-dl).
+REMARK1: Here, I recommend to download "webm" format videos as they are usually encoded with Google's VP9 codec, which usually has good quality and "ffmpeg" supports VP9 decode. Note that if you use "ext=mp4" you may download video with AV1 codec (really new), which may not be supported by some "ffmpeg" binary/package distribution (Of course, you can compile your own "ffmpeg" if you want). In addition, most mp4 files downloaded from youtube are encoded with H.264 codec, which usually has worse quality than VP9. For more details, please refer to [youtube-dl](https://github.com/ytdl-org/youtube-dl).
 
-Of course, you can use your own videos.
+REMARK2: Of course, you can prepare your own videos.
+
+REMARK3: we also provide a list of youtube video ids, so that you can directly download via youtube id ([ID List](youtube_idlist.csv))
 
 ## Use the scripts
 1. Install `opencv-python` `ffmpeg` first.
